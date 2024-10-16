@@ -1,10 +1,39 @@
+using System.Collections.Generic;
 using UnityEngine;
+
+public enum PlayerTurnState { Selection, AbilitySelected, AbilityAction }
 
 public class PlayerController : MonoBehaviour
 {
-	RaycastHit hitInfo;
+	/// <summary>
+	/// Classic Singleton
+	/// </summary>
+	public static PlayerController instance;
+	private void Awake()
+	{
+		if (instance == null)
+			instance = this;
+	}
 
-	PlayableEntity selectedCharacter;
+	/// References
+	[SerializeField] private GameObject _combatHud;
+	[SerializeField] private List<AbilityButton> _abilityButtons;
+
+	// Game Control
+	PlayerTurnState _currentTurnState;
+	PlayerTurnState CurrentTurnState
+	{
+		get
+		{
+			return _currentTurnState;
+		}
+		set
+		{
+			_currentTurnState = value;
+		}
+	}
+
+	PlayableEntity _selectedCharacter;
 	PlayableEntity SelectedCharacter
 	{
 		/// Just a classic Property.
@@ -12,23 +41,34 @@ public class PlayerController : MonoBehaviour
 		/// more stuff before or after it's assigned (check down)
 		get
 		{
-			return selectedCharacter;
+			return _selectedCharacter;
 		}
 		set
 		{
-			/// After selecting the character, we setup a hud for him
-			selectedCharacter = value;
-
 			/// Check if character is selected or deselected
 			if (value != null)
 			{
-				SetupCombatHud();
+				/// Check if we chose different character that the one currently selected
+				if (value != _selectedCharacter)
+					SetupCombatHud(value as HeroBehaviour);
 			}
 			else
 			{
 				CloseCombatHud();
 			}
+
+			/// Set character after setting up hud
+			_selectedCharacter = value;
 		}
+	}
+
+	Ability _selectedAbility;
+
+	RaycastHit hitInfo;
+
+	private void Start()
+	{
+		CloseCombatHud();
 	}
 
 	public void Update()
@@ -55,21 +95,54 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 
-		if (selectedCharacter != null)
+		switch (CurrentTurnState)
 		{
-			if (Input.GetMouseButtonDown(1))
-			{
-				selectedCharacter = null;
-			}
+			case PlayerTurnState.Selection:
+				{
+
+				}
+				break;
+			case PlayerTurnState.AbilitySelected:
+				{
+
+				}
+				break;
+			case PlayerTurnState.AbilityAction:
+				{
+
+				}
+				break;
+			default:
+				break;
 		}
 	}
 
-	public void SetupCombatHud()
+	public void SetupCombatHud(HeroBehaviour hero)
 	{
-		Debug.Log("open ui");
+		_combatHud.SetActive(true);
+
+		foreach (var abilityButton in _abilityButtons)
+		{
+			abilityButton.gameObject.SetActive(false);
+		}
+		for (int i = 0; i < hero.abilities.Count; i++)
+		{
+			_abilityButtons[i].gameObject.SetActive(true);
+			_abilityButtons[i].SetAbility(hero.abilities[i]);
+		}
 	}
 	public void CloseCombatHud()
 	{
-		Debug.Log("Hud Closed");
+		_combatHud.SetActive(false);
+	}
+
+	public void SelectAbility(Ability ability)
+	{
+
+	}
+
+	public void ChangeState(PlayerTurnState newState)
+	{
+
 	}
 }
