@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealAlllies : Ability
 {
 	HeroBehaviour target;
-	public override IEnumerator AbilitySetup()
+	protected override IEnumerator AbilitySetup()
 	{
 		while (target == null)
 		{
@@ -15,7 +15,7 @@ public class HealAlllies : Ability
 
 		PlayAbility();
 	}
-	public override IEnumerator PlayOutAbility()
+	protected override IEnumerator PlayOutAbility()
 	{
 		yield return new WaitForSeconds(1);
 
@@ -29,10 +29,10 @@ public class HealAlllies : Ability
 		FinishAbility();
 	}
 
-	public override void FinishAbility()
+	protected override IEnumerator CompleteAbility()
 	{
-		target = null;
+		yield return base.CompleteAbility();
 
-		base.FinishAbility();
+		target = null;
 	}
 }

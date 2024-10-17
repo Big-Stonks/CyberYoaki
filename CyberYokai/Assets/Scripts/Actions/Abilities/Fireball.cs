@@ -6,7 +6,7 @@ public class Fireball : Ability
 	EnemyBehaviour target;
 	public Projectile_StraightPath projectilePrefab;
 
-	public override IEnumerator AbilitySetup()
+	protected override IEnumerator AbilitySetup()
 	{
 		while (target == null)
 		{
@@ -14,10 +14,10 @@ public class Fireball : Ability
 			yield return null;
 		}
 
-		PlayAbility();
+		CombatManager.QueueAbility(this);
 	}
 
-	public override IEnumerator PlayOutAbility()
+	protected override IEnumerator PlayOutAbility()
 	{
 		Projectile_StraightPath p = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 		p.target = target;
@@ -31,10 +31,10 @@ public class Fireball : Ability
 		yield return null;
 	}
 
-	public override void FinishAbility()
+	protected override IEnumerator CompleteAbility()
 	{
-		target = null;
+		yield return base.CompleteAbility();
 
-		base.FinishAbility();
+		target = null;
 	}
 }

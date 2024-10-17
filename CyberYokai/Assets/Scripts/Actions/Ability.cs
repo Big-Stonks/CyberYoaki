@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 /// <summary>
 /// Basic class for storing logic for Abilities.
@@ -10,6 +8,10 @@ using UnityEngine.Events;
 public class Ability : MonoBehaviour
 {
 	protected PlayableEntity caster;
+
+	public Action onFinished;
+
+	public bool inCast;
 
 	public void UseAbility(PlayableEntity caster)
 	{
@@ -20,18 +22,28 @@ public class Ability : MonoBehaviour
 	{
 		StartCoroutine(PlayOutAbility());
 	}
+	public void FinishAbility()
+	{
+		StartCoroutine(CompleteAbility());
+	}
 
-	public virtual IEnumerator AbilitySetup()
+	protected virtual IEnumerator AbilitySetup()
 	{
 		yield return null;
 	}
-	public virtual IEnumerator PlayOutAbility()
+	protected virtual IEnumerator PlayOutAbility()
 	{
 		yield return null;
 	}
-
-	public virtual void FinishAbility()
+	protected virtual IEnumerator CompleteAbility()
 	{
-		PlayerController.instance.canInteract = true;
+		Debug.Log("ABILITY DONE DELAY STARTED");
+		yield return new WaitForSeconds(1);
+
+		onFinished?.Invoke();
+		onFinished = null;
+		inCast = false;
+
+		Debug.Log("ABILITY DONE UWU");
 	}
 }
