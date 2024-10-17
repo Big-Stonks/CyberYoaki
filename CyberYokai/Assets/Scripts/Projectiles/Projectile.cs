@@ -1,8 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Base class for handling projectile logic. It can be derived from in order to create unique trajectories.
+/// </summary>
 public class Projectile : MonoBehaviour
 {
 	public EntityBehaviour target;

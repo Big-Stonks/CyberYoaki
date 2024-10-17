@@ -3,6 +3,10 @@ using UnityEngine;
 
 public enum CombatState { PlayerTurn, EnemyTurn }
 
+/// <summary>
+/// Class used for managing and tracking combat state and provides utilities to more easily manipulate it.
+/// It tracks data bout entity positions, who's turn it is, ability queueing, and so on.
+/// </summary>
 public class CombatManager : MonoBehaviour
 {
 	public static CombatManager instance;
@@ -20,6 +24,8 @@ public class CombatManager : MonoBehaviour
 
 	public void Update()
 	{
+		/// While there are abilities to be used, play them one by one.
+		/// Also disable/enable player input based on that.
 		PlayerController.instance.canInteract = queuedAbilities.Count == 0;
 
 		if (queuedAbilities.Count > 0)
@@ -45,5 +51,4 @@ public class CombatManager : MonoBehaviour
 	{
 		currentState = newState;
 	}
-
 }

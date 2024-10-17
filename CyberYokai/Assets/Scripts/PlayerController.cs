@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
 	public RaycastHit _hitInfo;
 	public bool _hasHit => _hitInfo.collider != null;
 	public bool canInteract;
-	bool _stateSet;
 
 	private void Start()
 	{
@@ -61,11 +60,17 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Called when a character is clicked.
+	/// </summary>
 	public void SelectCharacter(HeroBehaviour character)
 	{
 		_selectedCharacter = character;
 		SetupCombatHud(character);
 	}
+	/// <summary>
+	/// Called when ability in hud is clicked to set it up for casting.
+	/// </summary>
 	public void SelectAbility(Ability ability)
 	{
 		_selectedAbility = ability;
@@ -74,6 +79,10 @@ public class PlayerController : MonoBehaviour
 		CloseCombatHud();
 	}
 
+	/// <summary>
+	/// Opens the hud and sets the abilities accordingly
+	/// </summary>
+	/// <param name="hero">Hud for which hero.</param>
 	public void SetupCombatHud(HeroBehaviour hero)
 	{
 		_combatHud.SetActive(true);
@@ -91,12 +100,5 @@ public class PlayerController : MonoBehaviour
 	public void CloseCombatHud()
 	{
 		_combatHud.SetActive(false);
-	}
-
-	public void FinishCast()
-	{
-		_selectedAbility = null;
-		_selectedCharacter = null;
-		_stateSet = false;
 	}
 }

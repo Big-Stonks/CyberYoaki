@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
 
+/// <summary>
+/// Base class to declare entity stats data.
+/// </summary>
 public class StatManager : MonoBehaviour
 {
 	public int currentHealth;
@@ -13,6 +16,7 @@ public class StatManager : MonoBehaviour
 	{
 		currentHealth = maxHealth;
 
+		/// If healthbar ui is present, set it up.
 		if (healthBar != null)
 		{
 			healthBar.maxValue = maxHealth;
