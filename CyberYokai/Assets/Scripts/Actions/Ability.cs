@@ -1,35 +1,37 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Basic class for storing logic for Abilities.
 /// </summary>
 public class Ability : MonoBehaviour
 {
-	public List<AbilityCast> casts;
-
-	public Action onAbilityFinished;
-
 	protected PlayableEntity caster;
 
 	public void UseAbility(PlayableEntity caster)
 	{
 		this.caster = caster;
+		StartCoroutine(AbilitySetup());
 	}
-
-	public virtual void AbilityAction() { }
-
-	public void FinishAbility()
+	public void PlayAbility()
 	{
-		onAbilityFinished?.Invoke();
-		onAbilityFinished = null;
+		StartCoroutine(PlayOutAbility());
 	}
-}
 
-[System.Serializable]
-public class AbilityCast
-{
-	public enum CastType { SingleTarget, AoE, Adjecent, Row }
-	public enum CastTargeting { SelfOnly, Ally, Enemy }
+	public virtual IEnumerator AbilitySetup()
+	{
+		yield return null;
+	}
+	public virtual IEnumerator PlayOutAbility()
+	{
+		yield return null;
+	}
+
+	public virtual void FinishAbility()
+	{
+		PlayerController.instance.canInteract = true;
+	}
 }

@@ -15,5 +15,5 @@ public interface PlayableEntity
 /// </summary>
 public class EntityBehaviour : MonoBehaviour
 {
-
+	public EntitySpot spot;
 }
