@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealAlllies : Ability
+public class HealAlllies : Ability, IDamageSource
 {
 	HeroBehaviour target;
 	protected override IEnumerator AbilitySetup()
 	{
-		while (target == null)
-		{
-			target = AbilityUtils.UserSelection.GetEntity<HeroBehaviour>();
-			yield return null;
-		}
+		yield return new WaitUntil(() => AbilityUtils.UserSelection.GetEntity(out target) != null);
 
 		PlayAbility();
 	}
+
 	protected override IEnumerator PlayOutAbility()
 	{
 		yield return new WaitForSeconds(1);
@@ -23,7 +20,7 @@ public class HealAlllies : Ability
 
 		foreach (var hero in affectedHeroes)
 		{
-			Debug.Log("HEALED " + hero.gameObject.name);
+			hero.GetComponent<StatManager>().TakeDamage(-3, this);
 		}
 
 		FinishAbility();

@@ -64,5 +64,6 @@ public class Ability : MonoBehaviour
 		onFinished?.Invoke();
 		onFinished = null;
 		inCast = false;
+		CombatManager.instance.CallOnAbilityFinished(this);
 	}
 }

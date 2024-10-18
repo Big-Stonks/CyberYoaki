@@ -1,6 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
+
+public interface IDamageSource
+{
+
+}
+
+public delegate void ActionRef<T1> (ref T1 t1);
 
 /// <summary>
 /// Base class to declare entity stats data.
@@ -12,11 +20,14 @@ public class StatManager : MonoBehaviour
 
 	public Slider healthBar;
 
+	public ActionRef<int> takeDamageModification;
+	public Action<IDamageSource, StatManager> onTakeDamage;
+
 	public void Start()
 	{
 		currentHealth = maxHealth;
 
-		/// If healthbar ui is present, set it up.
+		/// If healthbar is present, set it up.
 		if (healthBar != null)
 		{
 			healthBar.maxValue = maxHealth;
@@ -25,10 +36,15 @@ public class StatManager : MonoBehaviour
 		}
 	}
 
-	public void TakeDamage(int amount)
+	public void TakeDamage(int amount, IDamageSource source)
 	{
+		takeDamageModification?.Invoke(ref amount);
+
 		currentHealth -= amount;
 		UpdateUi();
+
+		Debug.Log(gameObject.name + " took " + amount + " damage from " + source);
+		onTakeDamage?.Invoke(source, this);
 
 		if (currentHealth <= 0)
 		{

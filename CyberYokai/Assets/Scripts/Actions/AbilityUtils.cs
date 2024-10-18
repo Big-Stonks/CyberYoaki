@@ -23,7 +23,7 @@ public class AbilityUtils : MonoBehaviour
 		/// </summary>
 		/// <typeparam name="T">Which type of entity will be accepted.</typeparam>
 		/// <returns>Returns clicked entity.</returns>
-		public static T GetEntity<T>() where T : EntityBehaviour
+		public static T GetEntity<T>(out T target) where T : EntityBehaviour
 		{
 			T t = null;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -37,6 +37,7 @@ public class AbilityUtils : MonoBehaviour
 					}
 				}
 			}
+			target = t;
 			return t;
 		}
 	}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ public class CombatManager : MonoBehaviour
 	public List<EntitySpot> spots;
 
 	public List<Ability> queuedAbilities;
+
+	public Action<Ability> onAbilityFinished;
 
 	public void Update()
 	{
@@ -50,5 +53,11 @@ public class CombatManager : MonoBehaviour
 	public void SetCurrentState(CombatState newState)
 	{
 		currentState = newState;
+	}
+
+	public void CallOnAbilityFinished(Ability ability)
+	{
+		onAbilityFinished?.Invoke(ability);
+		onAbilityFinished = null;
 	}
 }
