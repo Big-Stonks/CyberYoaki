@@ -23,6 +23,9 @@ public class CombatManager : MonoBehaviour
 
 	public List<Ability> queuedAbilities;
 
+	/// <summary>
+	/// This is called whenever ANY ability finishes casting.
+	/// </summary>
 	public Action<Ability> onAbilityFinished;
 
 	public void Update()

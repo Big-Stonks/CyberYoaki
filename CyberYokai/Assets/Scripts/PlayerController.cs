@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	/// <summary>
-	/// Classic Singleton
-	/// </summary>
 	public static PlayerController instance;
 	private void Awake()
 	{
@@ -79,10 +76,6 @@ public class PlayerController : MonoBehaviour
 		CloseCombatHud();
 	}
 
-	/// <summary>
-	/// Opens the hud and sets the abilities accordingly
-	/// </summary>
-	/// <param name="hero">Hud for which hero.</param>
 	public void SetupCombatHud(HeroBehaviour hero)
 	{
 		_combatHud.SetActive(true);

@@ -8,6 +8,9 @@ public class StatusEffectHandler
 	public int turnsRemaining;
 }
 
+/// <summary>
+/// Class for managing all the statuses on the entity
+/// </summary>
 public class StatusManager : MonoBehaviour
 {
 	public List<StatusEffectHandler> statusEffects;
@@ -29,9 +32,11 @@ public class StatusManager : MonoBehaviour
 		if (statusEffects.Exists(seh => seh.status.GetType() == status.GetType()))
 			return;
 
+		// Handle if status has consumable functionality
 		if (status is IStatusConsumable)
 			((IStatusConsumable)status).SetupConsumeCondition();
 
+		// Create a new handler class to add to list
 		StatusEffectHandler seh = new StatusEffectHandler()
 		{
 			status = status,
