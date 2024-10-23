@@ -9,11 +9,6 @@ using UnityEngine;
 public interface IStatusConsumable
 {
 	public void Consume();
-
-	/// <summary>
-	/// Under what condition is the status consumed? i.e when enemy is attacked.
-	/// </summary>
-	public void SetupConsumeCondition();
 }
 #endregion
 

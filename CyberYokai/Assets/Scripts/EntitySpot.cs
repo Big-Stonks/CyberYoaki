@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -8,9 +6,11 @@ using UnityEngine;
 /// </summary>
 public class EntitySpot : MonoBehaviour
 {
-	public enum SpotSide { Player, Enemy }
+	public enum SpotSide { Player, Enemy, Any }
 
 	public Vector2Int coords;
 	public EntityBehaviour entityOnThis;
 	public SpotSide side;
+
+	public bool isOccupied { get => entityOnThis != null; }
 }

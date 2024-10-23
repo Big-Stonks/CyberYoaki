@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Fireball : Ability, IDamageSource
+public class BasicAbility_Fireball : BasicAbility, IDamageSource
 {
 	EnemyBehaviour target;
 	public Projectile_StraightPath projectilePrefab;
@@ -61,7 +61,7 @@ public class Fireball : Ability, IDamageSource
 		{
 			target.TakeDamage(3, this);
 		}
-		public void SetupConsumeCondition()
+		public override void OnApply()
 		{
 			target.onTakeDamage += CheckForConsumeCondition;
 		}

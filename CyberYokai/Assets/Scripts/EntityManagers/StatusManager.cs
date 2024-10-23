@@ -23,7 +23,7 @@ public class StatusManager : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.Return))
 		{
-			ApplyStatus(new Vulnerable() { duration = 5, target = GetComponent<StatManager>(), sourceAbility = FindFirstObjectByType<Fireball>() });
+			ApplyStatus(new Vulnerable() { duration = 5, target = GetComponent<StatManager>(), sourceAbility = FindFirstObjectByType<BasicAbility_Fireball>() });
 		}
 	}
 
@@ -31,10 +31,6 @@ public class StatusManager : MonoBehaviour
 	{
 		if (statusEffects.Exists(seh => seh.status.GetType() == status.GetType()))
 			return;
-
-		// Handle if status has consumable functionality
-		if (status is IStatusConsumable)
-			((IStatusConsumable)status).SetupConsumeCondition();
 
 		// Create a new handler class to add to list
 		StatusEffectHandler seh = new StatusEffectHandler()

@@ -68,3 +68,8 @@ public class Ability : MonoBehaviour
 		CombatManager.instance.CallOnAbilityFinished(this);
 	}
 }
+
+public class BasicAbility : Ability
+{
+
+}
