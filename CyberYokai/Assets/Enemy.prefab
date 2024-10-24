@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6932883855854278634}
   - component: {fileID: 1256333612681864336}
   - component: {fileID: 8917958244180703251}
+  - component: {fileID: 9171287964728979322}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -102,6 +103,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1818360609 &9171287964728979322
+RotationConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2806559541977591227}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_RotationAtRest: {x: 19.24, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources: []
 --- !u!1 &5202229975697219747
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +261,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -315,9 +335,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b74be310caddf4f9294c4c3d66704a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 15
-  healthBar: {fileID: 7629473357490863931}
+  health:
+    current: 50
+    _base: 50
+    bar: {fileID: 7629473357490863931}
+  mana:
+    current: 0
+    _base: 0
+    bar: {fileID: 0}
+  durability:
+    _base: 0
+  constraint: {fileID: 9171287964728979322}
 --- !u!114 &3539530065386113220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93e03f1d07913c4081a1050d7e51012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusEffects: []
 --- !u!1 &7496379455712747506
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +444,6 @@ GameObject:
   m_Component:
   - component: {fileID: 98855317051917245}
   - component: {fileID: 7629473357490863931}
-  - component: {fileID: 7748311547994567873}
   m_Layer: 5
   m_Name: Healthbar
   m_TagString: Untagged
@@ -495,24 +523,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1818360609 &7748311547994567873
-RotationConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8264181223883740140}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_RotationAtRest: {x: 59.999935, y: 0, z: 0}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources: []
 --- !u!1 &8779638907951326424
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class Ability : MonoBehaviour
 
 	public Action onFinished;
 
+	public int manaRequired;
 	public bool inCast;
 
 	/// <summary>

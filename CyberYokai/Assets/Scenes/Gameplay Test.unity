@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -207,6 +207,16 @@ PrefabInstance:
       propertyPath: spot
       value: 
       objectReference: {fileID: 224661336}
+    - target: {fileID: 8451722862052227519, guid: cc48006a64ee39e49b3c1bd27cd69ecf,
+        type: 3}
+      propertyPath: maxHealth._base
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451722862052227519, guid: cc48006a64ee39e49b3c1bd27cd69ecf,
+        type: 3}
+      propertyPath: currentHealth.amount
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -421,6 +431,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -513,6 +524,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -613,6 +625,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -734,6 +747,16 @@ PrefabInstance:
       propertyPath: spot
       value: 
       objectReference: {fileID: 1566823878}
+    - target: {fileID: 8451722862052227519, guid: cc48006a64ee39e49b3c1bd27cd69ecf,
+        type: 3}
+      propertyPath: maxHealth._base
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451722862052227519, guid: cc48006a64ee39e49b3c1bd27cd69ecf,
+        type: 3}
+      propertyPath: currentHealth.amount
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1262,6 +1285,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1496,8 +1520,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &410087041
 Transform:
   m_ObjectHideFlags: 0
@@ -1786,6 +1814,26 @@ PrefabInstance:
       propertyPath: spot
       value: 
       objectReference: {fileID: 301852710}
+    - target: {fileID: 6355200913434460649, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: maxHealth._base
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6355200913434460649, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: currentHealth.amount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956723754058573693, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956723754058573693, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7368080230300909283, guid: ff1f6a73520ade2448e5a8f2e35fe813,
         type: 3}
       propertyPath: m_Name
@@ -2001,6 +2049,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2104,6 +2153,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2189,6 +2239,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2349,6 +2400,26 @@ PrefabInstance:
       propertyPath: spot
       value: 
       objectReference: {fileID: 2146241581}
+    - target: {fileID: 6355200913434460649, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: maxHealth._base
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6355200913434460649, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: currentHealth.amount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956723754058573693, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956723754058573693, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7368080230300909283, guid: ff1f6a73520ade2448e5a8f2e35fe813,
         type: 3}
       propertyPath: m_Name
@@ -2440,6 +2511,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2525,6 +2597,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2690,6 +2763,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2845,6 +2919,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2930,6 +3005,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3552,6 +3628,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3738,6 +3815,26 @@ PrefabInstance:
       propertyPath: 'abilities.Array.data[2]'
       value: 
       objectReference: {fileID: 5803336709442972122}
+    - target: {fileID: 6355200913434460649, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: maxHealth._base
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6355200913434460649, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: currentHealth.amount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956723754058573693, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956723754058573693, guid: ff1f6a73520ade2448e5a8f2e35fe813,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7368080230300909283, guid: ff1f6a73520ade2448e5a8f2e35fe813,
         type: 3}
       propertyPath: m_Name
@@ -3770,6 +3867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead6a05ab2f8e894597511415d8bb750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaRequired: 0
   inCast: 0
   minionPrefab: {fileID: 6033459722551525858, guid: ff1f6a73520ade2448e5a8f2e35fe813,
     type: 3}
@@ -3855,6 +3953,16 @@ PrefabInstance:
         type: 3}
       propertyPath: maxHealth
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451722862052227519, guid: cc48006a64ee39e49b3c1bd27cd69ecf,
+        type: 3}
+      propertyPath: maxHealth._base
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451722862052227519, guid: cc48006a64ee39e49b3c1bd27cd69ecf,
+        type: 3}
+      propertyPath: currentHealth.amount
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
